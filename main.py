@@ -4,7 +4,7 @@ from tkinter import filedialog
 from PIL import Image, ImageTk
 import os
 
-root = tk.Tk()
+root = Tk()
 root.geometry('1200x700')
 root.title('Image Manipulator')
 root.config(bg="skyblue")
@@ -35,13 +35,13 @@ left_frame.grid_propagate(False)
 #left_subFrame.pack_propagate(False)
 #lSubFrame.pack()
 
-openFile = tk.Button(left_frame, image=images[0], padx=10, pady=5, fg="white", bg="#263D42", command=lambda: addImage(0))
+openFile = Button(left_frame, image=images[0], padx=10, pady=5, fg="white", bg="#263D42", command=lambda: addImage(0))
 openFile.pack()
 
 #lSubFrameTwo = Frame(left_frame, width=390, height=300, bg="red")
 #lSubFrameTwo.pack()
 
-openFileTwo = tk.Button(left_frame, image=images[1], padx=10, pady=5, fg="white", bg="#263D42", command=lambda: addImage(1))
+openFileTwo = Button(left_frame, image=images[1], padx=10, pady=5, fg="white", bg="#263D42", command=lambda: addImage(1))
 openFileTwo.pack()
 
 #if os.path.isfile('save.txt'):
