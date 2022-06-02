@@ -8,10 +8,16 @@ root = tk.Tk()
 root.geometry('1200x700')
 root.title('Image Manipulator')
 root.config(bg="skyblue")
-apps = []
+images = []
 
-left_frame = Frame(root, width=200, height=400)
+left_frame = Frame(root, width=400, height=690)
 left_frame.grid(row=0, column=0, padx=10, pady=5)
+left_frame.pack_propagate(False)
+left_frame.grid_propagate(False)
+
+left_subFrame = Frame(left_frame, width=390, height=300, bg="black")
+#left_subFrame.pack_propagate(False)
+left_subFrame.pack()
 
 #if os.path.isfile('save.txt'):
  #   with open('save.txt', 'r') as f:
@@ -22,9 +28,10 @@ def addImage():
 
     path=filedialog.askopenfilename(filetypes=[("Image File",'.jpg')])
     im = Image.open(path)
-    im.thumbnail((250, 250))
+    images.append(im)
+    im.thumbnail((250, 300))
     tkimage = ImageTk.PhotoImage(im)
-    myvar=Label(left_frame,image = tkimage)
+    myvar=Label(left_subFrame,image = tkimage)
     myvar.image = tkimage
     myvar.pack()
 
