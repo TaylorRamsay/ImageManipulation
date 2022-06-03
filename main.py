@@ -5,6 +5,8 @@ from turtle import width
 from PIL import Image, ImageTk
 import os, copy
 
+from numpy import save, typename
+
 root = Tk()
 root.geometry('1200x700')
 root.title('Image Manipulator')
@@ -47,7 +49,6 @@ def verticalCuts():
     print(images[0].format, images[0].size, images[0].mode)
     print(images[1].format, images[1].size, images[1].mode)
 
-
     for x in range(images[1].width):
         cut_region = (position, 0, position + 1, strip_height)
         cut = images[0].crop(cut_region)
@@ -61,7 +62,12 @@ def verticalCuts():
     myvar=Label(middle_frame, image=tkimage)
     myvar.image = tkimage
     myvar.pack()
-    images[1].save("C:\\Users\\FSK8475\\Documents\\ImageManipProgram\\test.jpg")
+    images[1].save("C:\\Users\\FSK8475\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\Processed\\test.jpg")
+
+def saveFile():
+    f = filedialog.asksaveasfile(defaultextension='*.*')
+    f.write(images[1])
+
 
 left_frame = Frame(root, width=400, height=690)
 left_frame.grid(row=0, column=0, padx=10, pady=5)
@@ -81,6 +87,9 @@ openFileTwo.pack()
 
 process = Button(middle_frame, text="PROCESS", padx=10, pady=5, fg="white", bg="#263D42", command=verticalCuts)
 process.pack()
+
+save = Button(middle_frame, text="SAVE", padx=10, pady=5, fg="white", bg="#263D42", command=saveFile)
+save.pack()
 
 #if os.path.isfile('save.txt'):
  #   with open('save.txt', 'r') as f:
