@@ -18,12 +18,12 @@ class ImageManipulator(Frame):
     __images = [__buttonOneImg, __buttonTwoImg]
 
     def initFrames(self):
-        self.left_frame = Frame(self, width=400, height=690)
+        self.left_frame = Frame(self.__root, width=400, height=690)
         self.left_frame.grid(row=0, column=0, padx=10, pady=5)
         self.left_frame.pack_propagate(False)
         self.left_frame.grid_propagate(False)
 
-        self.middle_frame = Frame(self, width= 750, height=690)
+        self.middle_frame = Frame(self.__root, width= 750, height=690)
         self.middle_frame.grid(row=0, column=1, padx=10, pady=5)
         self.middle_frame.pack_propagate(False)
         self.middle_frame.grid_propagate(False)
@@ -96,7 +96,7 @@ class ImageManipulator(Frame):
 
     def __init__(self, master=__root):
         Frame.__init__(self, master)
-        self.pack()
+        self.grid()
         self.initFrames()
         self.initButtons()
 
