@@ -28,7 +28,6 @@ class ImageManipulator(Frame):
         self.middle_frame.pack_propagate(False)
         self.middle_frame.grid_propagate(False)
 
-
     def initButtons(self):
         self.openFile = Button(self.left_frame, image=self.__images[0], padx=10, pady=5, fg="white", bg="#263D42", command=lambda: self.addImageOne(0))
         self.openFile.pack()
@@ -43,20 +42,18 @@ class ImageManipulator(Frame):
         self.save.pack()
 
     def addImageOne(self, k):
-
         path=filedialog.askopenfilename(filetypes=[("Image File",'.jpg'), ("All Files", "*.*")])
         im = Image.open(path)
         cop = copy.deepcopy(im)
         self.__images[k] = cop
         im.thumbnail((250, 300))
         tkimage = ImageTk.PhotoImage(im)
-        #self.openFile.image=im
+        self.openFile.image=im
         myvar=Label(self.openFile, image = tkimage)
         myvar.image = tkimage
         myvar.pack()
 
     def addImageTwo(self, k):
-
         path=filedialog.askopenfilename(filetypes=[("Image File",'.jpg'), ("All Files", "*.*")])
         im = Image.open(path)
         cop = copy.deepcopy(im)
@@ -68,7 +65,6 @@ class ImageManipulator(Frame):
         myvar.pack()
 
     def verticalCuts(self):
-
         strip_height = self.__images[0].height
         position = 0
 
