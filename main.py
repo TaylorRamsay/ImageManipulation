@@ -65,8 +65,8 @@ def verticalCuts():
     images[1].save("C:\\Users\\FSK8475\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\Processed\\test.jpg")
 
 def saveFile():
-    f = filedialog.asksaveasfile(defaultextension='*.*')
-    f.write(images[1])
+    f = filedialog.asksaveasfile(mode='w', defaultextension='*.jpg*')
+    images[1].save(f)
 
 
 left_frame = Frame(root, width=400, height=690)
