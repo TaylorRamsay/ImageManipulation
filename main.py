@@ -13,8 +13,8 @@ class ImageManipulator(Frame):
     __root.geometry('1200x700')
     __root.title('Image Manipulator')
     __root.config(bg="skyblue")
-    __buttonOneImg = PhotoImage(file=r"C:\\Users\\FSK8475\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageOne.png")
-    __buttonTwoImg = PhotoImage(file=r"C:\\Users\\FSK8475\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageTwo.png")
+    __buttonOneImg = PhotoImage(file=r"C:\\Users\\CDK345\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageOne.png")
+    __buttonTwoImg = PhotoImage(file=r"C:\\Users\\CDK345\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageTwo.png")
     __images = [__buttonOneImg, __buttonTwoImg]
 
     def initFrames(self):
