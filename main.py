@@ -13,8 +13,8 @@ class ImageManipulator(Frame):
     __root.geometry('1200x700')
     __root.title('Image Manipulator')
     __root.config(bg="skyblue")
-    __buttonOneImg = PhotoImage(file=r"C:\\Users\\FSK8475\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageOne.png")
-    __buttonTwoImg = PhotoImage(file=r"C:\\Users\\FSK8475\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageTwo.png")
+    __buttonOneImg = PhotoImage(file=r"C:\\Users\\CDK345\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageOne.png")
+    __buttonTwoImg = PhotoImage(file=r"C:\\Users\\CDK345\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageTwo.png")
     __images = [__buttonOneImg, __buttonTwoImg]
 
     def initFrames(self):
@@ -29,10 +29,16 @@ class ImageManipulator(Frame):
         self.middle_frame.grid_propagate(False)
 
     def initButtons(self):
-        self.openFile = Button(self.left_frame, image=self.__images[0], padx=10, pady=5, fg="white", bg="#263D42", command=lambda: self.addImageOne(0))
+        self.imgOne = Label(self.left_frame, image=self.__images[0])
+        self.imgOne.pack()
+
+        self.openFile = Button(self.left_frame, text="Select Image One", padx=10, pady=5, fg="white", bg="#263D42", command=lambda: self.addImageOne(0))
         self.openFile.pack()
 
-        self.openFileTwo = Button(self.left_frame, image=self.__images[1], padx=10, pady=5, fg="white", bg="#263D42", command=lambda: self.addImageTwo(1))
+        self.imgTwo = Label(self.left_frame, image=self.__images[1])
+        self.imgTwo.pack()
+
+        self.openFileTwo = Button(self.left_frame, text="Select Image Two", padx=10, pady=5, fg="white", bg="#263D42", command=lambda: self.addImageTwo(1))
         self.openFileTwo.pack()
 
         self.process = Button(self.middle_frame, text="PROCESS", padx=10, pady=5, fg="white", bg="#263D42", command=self.verticalCuts)
@@ -49,9 +55,12 @@ class ImageManipulator(Frame):
         im.thumbnail((250, 300))
         tkimage = ImageTk.PhotoImage(im)
         self.openFile.image=im
-        myvar=Label(self.openFile, image = tkimage)
-        myvar.image = tkimage
-        myvar.pack()
+        self.imgOne.configure(image=tkimage)
+        self.imgOne.image=tkimage
+        self.imgOne.pack()
+        #myvar=Label(self.openFile, image = tkimage)
+        #myvar.image = tkimage
+        #myvar.pack()
 
     def addImageTwo(self, k):
         path=filedialog.askopenfilename(filetypes=[("Image File",'.jpg'), ("All Files", "*.*")])
@@ -60,9 +69,12 @@ class ImageManipulator(Frame):
         self.__images[k] = cop
         im.thumbnail((250, 300))
         tkimage = ImageTk.PhotoImage(im)
-        myvar=Label(self.openFileTwo, image = tkimage)
-        myvar.image = tkimage
-        myvar.pack()
+        self.imgTwo.configure(image=tkimage)
+        self.imgTwo.image=tkimage
+        self.imgTwo.pack()
+        #myvar=Label(self.openFileTwo, image = tkimage)
+        #myvar.image = tkimage
+        #myvar.pack()
 
     def verticalCuts(self):
         strip_height = self.__images[0].height
@@ -84,7 +96,7 @@ class ImageManipulator(Frame):
         myvar=Label(self.middle_frame, image=tkimage)
         myvar.image = tkimage
         myvar.pack()
-        self.__images[1].save("C:\\Users\\FSK8475\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\Processed\\test.jpg")
+        self.__images[1].save("C:\\Users\\CDK345\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\Processed\\test.jpg")
 
     def saveFile(self):
         f = filedialog.asksaveasfile(mode='w', defaultextension='*.jpg*')
