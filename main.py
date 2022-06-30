@@ -10,6 +10,7 @@ class ImageManipulator(Frame):
     __root.title('Image Manipulator')
     __root.config(bg="skyblue")
     __buttonOneImg = PhotoImage(file=r"C:\\Users\\CDK345\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageOne.png")
+    __buttonTwoImg = PhotoImage(file=r"C:\\Users\\CDK345\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageTwo.png")
     __processedImg = PhotoImage(file=r"C:\\Users\\CDK345\\Documents\\GitHub\\ImageManipulation\\lib\\Icons\\imageTwo.png")
     __images = [__buttonOneImg, __buttonTwoImg, __processedImg]
 
